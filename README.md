@@ -49,7 +49,7 @@ pest-detection-ai-_V2/
 ## Установка и запуск
 
 ```bash
-git clone <repo>
+git clone <git@github.com:limonORG02/pest-detection-ai-_V2.git>
 cd pest-detection-ai-update
 ./run.sh
 ```
