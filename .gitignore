@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+models/
+data/train/
+data/test/
+reports/
+.DS_Store
+.idea/
+.vscode/
