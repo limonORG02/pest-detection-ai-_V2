@@ -53,7 +53,13 @@ git clone <git@github.com:limonORG02/pest-detection-ai-_V2.git>
 cd pest-detection-ai-update
 ./run.sh
 ```
-## Предсказание
+
+После запуска откройте в браузере:
+```
+http://127.0.0.1:5000
+```
+
+## Предсказание из консоли
 ```
 python src/inference/predict.py image.jpg
 ```

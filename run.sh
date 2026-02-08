@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 set -e
 
-python -m venv venv
-source venv/bin/activate
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+VENV_DIR="$SCRIPT_DIR/.venv"
 
-pip install --upgrade pip
-pip install -r requirements.txt
+# Ensure venv exists
+if [ ! -d "$VENV_DIR" ]; then
+    echo "Virtual environment not found. Setting it up..."
+    python3 -m venv "$VENV_DIR"
+    "$VENV_DIR/bin/pip" install -r "$SCRIPT_DIR/requirements.txt"
+fi
 
-python src/data/prepare_data.py
-python src/training/train.py
-python src/evaluation/evaluate.py
+echo "Starting Web Interface..."
+echo "Open your browser at: http://127.0.0.1:5000"
 
-echo "Готово! Для предсказания:"
-echo "python src/inference/predict.py image.jpg"
+"$VENV_DIR/bin/python" "$SCRIPT_DIR/src/app.py"
